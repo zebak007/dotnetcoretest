@@ -1,3 +1,5 @@
+https://www.thecodebuzz.com/get-json-array-using-iconfiguration-apsettings-json-asp-net-core/  How to access the config section
+
 https://stackoverflow.com/questions/54692345/how-to-read-appsettings-json-with-array-of-values
 
  "SundrySettings": {
