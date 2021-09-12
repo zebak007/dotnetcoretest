@@ -1,0 +1,41 @@
+https://stackoverflow.com/questions/54692345/how-to-read-appsettings-json-with-array-of-values
+
+ "SundrySettings": {
+
+    "CookieName": "Cookie",
+
+    "AccessGroup": "Software Development",
+
+    "Terminals" :  {
+      "Raucherplatz" : "tablet1.local",
+      "Service" :      "tablet2.local",  
+      "Technik" :      "tablet3.local",  
+      "Technik" :      "tablet4.local",  
+      "Container" :    "tablet5.local"
+    }
+  }
+}
+Var cookieName = Configuration.GetSection("SundrySettings:CookieName").Value;
+var accessGroup = Configuration.GetSection("SundrySettings:AccessGroup").Value;
+var terminals = Configuration.GetSection("SundrySettings:Terminals").GetChildren();
+
+List<Terminal>  terminalList = new List<Terminal>();
+
+foreach (var keyValuePair in terminals)
+{
+     Terminal termial = new Terminal()
+     {
+          Name = keyValuePair.Key,
+          Description = keyValuePair.Value
+     };
+
+     terminalList.Add(termial);
+}
+
+SundryOptions sundryOption = new SundryOptions()
+{
+            CookieName = cookieName,
+            HRAccessGroup = accessGroup,
+            Terminals = terminalList
+};
+I have checked with the exact configuration you provided and it works perfectly.
